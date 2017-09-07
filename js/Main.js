@@ -49,7 +49,7 @@ function imageLoadingDoneSoStartGame() {
 	}
 	
 
-
+//// Had a go at setting up a loading screen but couldn't get my head around how the setInterval was being called and in particular how to stop once started
 function loadLevel(whichLevel, levelBaseState) {
 	//console.log("test4");
 	worldGrid = whichLevel.slice();
