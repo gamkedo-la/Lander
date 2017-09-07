@@ -6,8 +6,8 @@ const AIR_RESISTANCE = 0.97;
 const MAXIMUM_FALL_SPEED = 5;
 const MINIMUM_X_SPEED = 0.05;
 const DAMAGE_SPEED = 3;
-const MINIMUM_DAMAGE = 10; // Thrust affected after this point
-const MAXIMUM_DAMAGE = 4; // Ship destroyed after this point
+const MINIMUM_DAMAGE = 2; // Thrust affected after this point
+const MAXIMUM_DAMAGE = 10; // Ship destroyed after this point
 const BOUNCE_X = 0.1
 const FUEL_DEPLETION = 0.002;
 
@@ -201,7 +201,7 @@ function shipClass() {
 		
 		//console.log("SpeedY"+ nextSpeedY);
 		//console.log("SpeedX"+ nextSpeedX);
-		
+		//// This feels really clunky any way to loop through?
 		var walkIntoTileIndexBottom = getTileIndexAtPixelCoord(nextX, nextY+32);// sets point of detection to bottom center of sprite, still need to do proper multipoint detection
 		var walkIntoTileIndexTop = getTileIndexAtPixelCoord(nextX, nextY-32);
 		var walkIntoTileIndex = getTileIndexAtPixelCoord(nextX, nextY); // center position
@@ -245,7 +245,7 @@ function shipClass() {
 			walkIntoTileTypeRight = worldGrid[walkIntoTileIndexRight];
 		}
 		
-		
+		//// all the switch statements in the world, need to change so will automatically pick up multiple instances of different base types
 		switch(walkIntoLeftAdjacentTileType){
 			case TILE_BASE:
 			if(this.partCarried >0 && this.flying <1 )  { 

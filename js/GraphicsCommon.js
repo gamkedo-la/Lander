@@ -37,3 +37,5 @@ function colorTextMedium(showWords, textX,textY, fillColor) {
 	canvasContext.font = "17px Arial";
 	canvasContext.fillText(showWords, textX, textY);
 }
+
+//// Need to add function for base UI

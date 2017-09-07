@@ -4,12 +4,13 @@ const BASE_DEATH_RATE = 0.05;
 const BASE_OXYGEN_PRODUCTION = 0.003
 const BASE_FUEL_PRODUCTION = 0.003
 const BASE_ORE_PRODUCTION = 0.003
-const ORE_WIN = 30; // set low for test, amount of ore that calls trader to save you
+const ORE_WIN = 8; // set low for test, amount of ore that calls trader to save you
 
 
-var levelOneBaseState = [// pull out unneeded values? Use baseName field to control, can always have show name field seperate
-{baseName: "Alpha", oxygenLevel: 10, fuelLevel: 10, personnelLevel: 10, baseX: 0, baseY: 0, partLevel: 0, oreLevel: 0},
-{baseName: "Beta", oxygenLevel: 10, fuelLevel: 10, personnelLevel: 10, baseX: 0, baseY: 0, partLevel: 0, oreLevel: 0},
+var levelOneBaseState = [// pull out unneeded values? Change alpha and beta so can use baseName field to control, can always have show name field seperate
+//// baseX and baseY need to be written out from world 
+{baseName: "Alpha", oxygenLevel: 4, fuelLevel: 10, personnelLevel: 10, baseX: 0, baseY: 0, partLevel: 0, oreLevel: 0},
+{baseName: "Beta", oxygenLevel: 4, fuelLevel: 10, personnelLevel: 10, baseX: 0, baseY: 0, partLevel: 0, oreLevel: 0},
 {baseName: "Oxygen", oxygenLevel: 10, fuelLevel: 0, personnelLevel: 0, baseX: 0, baseY: 0, partLevel: 0},
 {baseName: "Fuel", oxygenLevel: 0, fuelLevel: 10, personnelLevel: 0, baseX: 0, baseY: 0, partLevel: 0},
 {baseName: "Ore", oreLevel:10, personnelLevel: 0, baseX: 0, baseY: 0, partLevel: 0}
@@ -32,7 +33,7 @@ function baseUpdate () {
 	for (var i=0; i<baseState.length; i++) { // var i means has function scope, could use let i then would have block scope
 		if (baseState[i].personnelLevel > 0){//so usage only occuring when crew present, not linked to crew level yet
 			
-		baseState[i].oxygenLevel -= BASE_OXYGEN_USAGE; // rewrite this so only applies if value above 0 rather than constantly changing and resetting if is zero
+		baseState[i].oxygenLevel -= BASE_OXYGEN_USAGE; //// rewrite this so only applies if value above 0 rather than constantly changing and resetting if is zero
 		baseState[i].fuelLevel -= BASE_FUEL_USAGE;
 		
 			if (baseState[i].oreLevel > ORE_WIN && oreWinTime < 360){
@@ -54,11 +55,15 @@ function baseUpdate () {
 			baseState[i].oreLevel += BASE_ORE_PRODUCTION
 		}
 		
-		if (baseState[0].oxygenLevel < 2) { // so need to make general
-			colorTextMedium("We're running out of oxygen!", 240,450,'red')
+		if (baseState[0].oxygenLevel < 2) { //// so need to make general, do based on loop through all with && statemnent for baseName
+			colorTextMedium("We're running out of oxygen!", 145,450,'red')
 		}
 		
-		if (baseState[i].oxygenLevel <=0){// capture this in code above so can get rid of hack
+		if (baseState[1].oxygenLevel < 2) { // so need to make general
+			colorTextMedium("We're running out of oxygen!", 400,50,'red')
+		}
+		
+		if (baseState[i].oxygenLevel <=0){//// capture this in code above so can get rid of hack
 			baseState[i].oxygenLevel = 0;
 			baseState[i].personnelLevel -= BASE_DEATH_RATE;//so no effect if run out of fuel at minute
 				if (baseState[i].personnelLevel <0){
@@ -69,7 +74,11 @@ function baseUpdate () {
 		if (baseState[i].fuelLevel <=0) {// capture this in code above so can get rid of hack
 			baseState[i].fuelLevel = 0
 		}
-		// below place holder hard coded,need to make UI function in GraphicsCommon and add location value to baseState by writing out from World, drawWorld function, using if tile type base etc
+		
+		
+	
+		
+		//// below place holder hard coded,need to make UI function in GraphicsCommon and add location value to baseState by writing out from World, drawWorld function, using if tile type base etc
 		colorText("Part :"+Math.floor(baseState[0].partLevel), 145,510,'white')
 		colorText("O2 :"+Math.floor(baseState[0].oxygenLevel), 145,490,'white')
 		colorText("Fuel :"+Math.floor(baseState[0].fuelLevel), 145,500,'white')
