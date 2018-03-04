@@ -11,8 +11,6 @@ const MAXIMUM_DAMAGE = 10; // Ship destroyed after this point
 const BOUNCE_X = 0.1
 const FUEL_DEPLETION = 0.002;
 
-
-
 function shipClass() {
 	this.x = 75;
 	this.y = 75;
@@ -38,8 +36,7 @@ function shipClass() {
 	this.peoplecarried = 0;
 	this.orecarried = 0;
 	this.shipdestroyed = 0;
-	
-	
+		
 	this.keyHeld_North = false;// movement controls
 	this.keyHeld_South = false;// Repair at base key
 	this.keyHeld_West = false;// movement controls
@@ -154,8 +151,6 @@ function shipClass() {
 		this.playerThrustXRight = 0.0;
 		this.playerThrustXLeft = 0.0;
 		}
-		
-		
 
 		if(this.keyHeld_North) {
 			if(this.fuel > 0){
@@ -171,8 +166,7 @@ function shipClass() {
 			nextSpeedX = nextSpeedX + this.playerThrustXLeft ;
 								
 		}
-		
-		
+				
 		if(this.keyHeld_West) {
 			nextSpeedX = nextSpeedX - this.playerThrustXRight ;
 		}
@@ -180,8 +174,7 @@ function shipClass() {
 		/*  if(this.keyHeld_Givefuel) {//test that new keycodes set up correctly
 			console.log("Give fuel")
 		}  */
-		
-		
+				
 		if(this.flying == 0){ // code to stop gliding in x when landed
 			nextSpeedX = 0;
 			}
@@ -190,8 +183,7 @@ function shipClass() {
 		nextY = nextY + nextSpeedY ;
 		this.speedY = nextSpeedY + GRAVITY;
 		this.speedX = nextSpeedX * AIR_RESISTANCE;
-		
-		
+				
 		if (this.speedY > MAXIMUM_FALL_SPEED) {  // put maximum limit on speed due to gravity
 		 this.speedY = MAXIMUM_FALL_SPEED;
 		}
@@ -279,14 +271,14 @@ function shipClass() {
 			
 			// ready to go once have added key
 			if(this.oxygenCarried >0  && this.keyHeld_Giveoxygen && this.flying <1) { //donate oxygen to base, need to convert to constants 
-			console.log("O2 given");
+			console.log("o2 given");
 				this.oxygenCarried = this.oxygenCarried - 0.02;
 				baseState[0].oxygenLevel += 0.02;
 				
 			}
 			
 			if(baseState[0].oxygenLevel >2 && this.keyHeld_Takeoxygen && this.flying <1) { //take oxygen from base
-			console.log("O2 taken");
+			console.log("o2 taken");
 				this.oxygenCarried = this.oxygenCarried + 0.02;
 				baseState[0].oxygenLevel -= 0.02;
 				
@@ -348,14 +340,14 @@ function shipClass() {
 			
 			// ready to go once have added key
 			if(this.oxygenCarried >0  && this.keyHeld_Giveoxygen && this.flying <1) { //donate oxygen to base, need to convert to constants 
-			console.log("O2 given");
+			console.log("o2 given");
 				this.oxygenCarried = this.oxygenCarried - 0.02;
 				baseState[1].oxygenLevel += 0.02;
 				
 			}
 			
 			if(baseState[1].oxygenLevel >2 && this.keyHeld_Takeoxygen && this.flying <1) { //take oxygen from base
-			console.log("O2 taken");
+			console.log("o2 taken");
 				this.oxygenCarried = this.oxygenCarried + 0.02;
 				baseState[1].oxygenLevel -= 0.02;
 				
@@ -378,10 +370,10 @@ function shipClass() {
 			
 			break;
 			
-			case TILE_O2_RIG:	
+			case TILE_o2_RIG:	
 						
-			if(baseState[2].oxygenLevel >0 && this.keyHeld_Takeoxygen && this.flying <1) { //take oxygen from O2 rig
-			console.log("O2 taken");
+			if(baseState[2].oxygenLevel >0 && this.keyHeld_Takeoxygen && this.flying <1) { //take oxygen from o2 rig
+			console.log("o2 taken");
 				this.oxygenCarried = this.oxygenCarried + 0.02;
 				baseState[2].oxygenLevel -= 0.02;
 				
@@ -448,14 +440,14 @@ function shipClass() {
 			
 			// ready to go once have added key
 			if(this.oxygenCarried >0  && this.keyHeld_Giveoxygen && this.flying <1) { //donate oxygen to base, need to convert to constants 
-			console.log("O2 given");
+			console.log("o2 given");
 				this.oxygenCarried = this.oxygenCarried - 0.02;
 				baseState[0].oxygenLevel += 0.02;
 				
 			}
 			
 			if(baseState[0].oxygenLevel >2 && this.keyHeld_Takeoxygen && this.flying <1) { //take oxygen from base
-			console.log("O2 taken");
+			console.log("o2 taken");
 				this.oxygenCarried = this.oxygenCarried + 0.02;
 				baseState[0].oxygenLevel -= 0.02;
 				
@@ -517,14 +509,14 @@ function shipClass() {
 			
 			// ready to go once have added key
 			if(this.oxygenCarried >0  && this.keyHeld_Giveoxygen && this.flying <1) { //donate oxygen to base, need to convert to constants 
-			console.log("O2 given");
+			console.log("o2 given");
 				this.oxygenCarried = this.oxygenCarried - 0.02;
 				baseState[1].oxygenLevel += 0.02;
 				
 			}
 			
 			if(baseState[1].oxygenLevel >2 && this.keyHeld_Takeoxygen && this.flying <1) { //take oxygen from base
-			console.log("O2 taken");
+			console.log("o2 taken");
 				this.oxygenCarried = this.oxygenCarried + 0.02;
 				baseState[1].oxygenLevel -= 0.02;
 				
@@ -547,10 +539,10 @@ function shipClass() {
 			
 			break;
 			
-			case TILE_O2_RIG:	
+			case TILE_o2_RIG:	
 						
-			if(baseState[2].oxygenLevel >0 && this.keyHeld_Takeoxygen && this.flying <1) { //take oxygen from O2 rig
-			//console.log("O2 taken");
+			if(baseState[2].oxygenLevel >0 && this.keyHeld_Takeoxygen && this.flying <1) { //take oxygen from o2 rig
+			//console.log("o2 taken");
 				this.oxygenCarried = this.oxygenCarried + 0.02;
 				baseState[2].oxygenLevel -= 0.02;
 				
@@ -608,20 +600,6 @@ function shipClass() {
 				break;
 		}
 				
-			/*	
-			case TILE_ROCK: // currently causes damage for both components need and/or to just be one?
-				if(Math.abs(this.speedY) > DAMAGE_SPEED) {
-					this.shipDamage ++; // increase level of ship damage
-					//this.updateReadout();
-					}
-				if(Math.abs(this.speedX) > DAMAGE_SPEED) {
-					this.shipDamage ++; // increase level of ship damage
-					//this.updateReadout();
-					}
-				if(this.shipDamage >= MAXIMUM_DAMAGE) {
-					colorTextLarge("Ship destroyed", 400, 300, "red")
-							setTimeout(loadLevel(levelOne, levelOneBaseState), 5000);
-				}	*/
 			if(walkIntoTileTypeBottom == TILE_ROCK){ // use == to not = as that sets it to equal not checks if it is equal too
 			this.flying = 0 // set flag so can stop x sliding when landed
 				if(Math.abs(this.speedY) > DAMAGE_SPEED) {
@@ -690,10 +668,7 @@ function shipClass() {
 			if(this.shipdestroyed >0 && this.keyHeld_Takeore ) { //take ore from base
 			loadLevel(levelOne, levelOneBaseState)
 			}
-		
 	}
-
-	
 	
 	this.draw = function() {
 		
@@ -709,16 +684,13 @@ function shipClass() {
 			
 			drawBitmapCenteredWithRotation(this.sideThrustRight, this.x -15,this.y, 0);
 			}
-								
-		
-		
-		
+						
 		if(this.keyHeld_West) {//side thruster
 			
 			drawBitmapCenteredWithRotation(this.sideThrustLeft, this.x +15,this.y, 0);
 		}
 		
-		// ship load levels drawing, note will need to shift out to seperate function when have multiple ships
+		//Change to make colour dependent on state, so as fuel getting critical white->orange->red
 		colorTextMedium("Fuel :"+Math.floor(this.fuel), 50,20,'white');
 		colorTextMedium("Part :"+this.partCarried, 150,20,'white');
 		colorTextMedium("Oxygen :"+Math.floor(this.oxygenCarried ), 250,20,'white');

@@ -38,4 +38,3 @@ function colorTextMedium(showWords, textX,textY, fillColor) {
 	canvasContext.fillText(showWords, textX, textY);
 }
 
-//// Need to add function for base UI

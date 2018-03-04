@@ -23,7 +23,7 @@ const TILE_FUEL = 3;
 const TILE_BASE = 4;
 const TILE_PART = 5;
 const TILE_BASE_ONE = 6;
-const TILE_O2_RIG = 7;
+const TILE_o2_RIG = 7;
 const TILE_FUEL_RIG = 8;
 const TILE_ORE_RIG = 9;
 
@@ -59,7 +59,7 @@ function tileTypeHasTransparency(checkTileType) {
 			checkTileType == TILE_BASE ||
 			checkTileType == TILE_BASE_ONE ||
 			checkTileType == TILE_PART ||
-			checkTileType == TILE_O2_RIG ||
+			checkTileType == TILE_o2_RIG ||
 			checkTileType == TILE_FUEL_RIG ||
 			checkTileType == TILE_ORE_RIG
 			);

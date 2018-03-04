@@ -3,8 +3,6 @@ var canvas, canvasContext;
 var blueShip = new shipClass();
 var i=0;
 
-
-
 window.onload = function() {
 	canvas = document.getElementById('gameCanvas');
 	canvasContext = canvas.getContext('2d');
@@ -17,38 +15,15 @@ window.onload = function() {
 
 function imageLoadingDoneSoStartGame() {
 	
-	
 	setupInput();
 	loadLevel(levelOne, levelOneBaseState);
 		
-	//console.log("test4");
-	/* var framesPerSecond = 30;
-	
-	var loadscreenInterval = setInterval(startAll, 1000/framesPerSecond); */
-	
-	
 	var framesPerSecond = 30;
 
 	setInterval(updateAll, 1000/framesPerSecond);
-	
-	
-	
-	
-	function startLevel(){// need to go back to this
-	
-	
-	var framesPerSecond = 30;
-
-	setInterval(updateAll, 1000/framesPerSecond);
-
-	
-
-	
+		
 	}
 	
-	}
-	
-
 //// Had a go at setting up a loading screen but couldn't get my head around how the setInterval was being called and in particular how to stop once started
 function loadLevel(whichLevel, levelBaseState) {
 	//console.log("test4");
@@ -64,13 +39,11 @@ function updateAll() {
 	drawAll();
 	baseUpdate();
 	
-	
-}
+	}
 
 function startAll() {
 	drawStart();	
 }
-
 
 function moveAll() {
 	blueShip.move();

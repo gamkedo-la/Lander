@@ -37,7 +37,7 @@ function loadImages() {
 		{worldType: TILE_BASE, theFile: "base.png"},
 		{worldType: TILE_BASE_ONE, theFile: "base1.png"},
 		{worldType: TILE_PART, theFile: "part.png"},
-		{worldType: TILE_O2_RIG, theFile: "O2rig.png"},
+		{worldType: TILE_o2_RIG, theFile: "o2rig.png"},
 		{worldType: TILE_FUEL_RIG, theFile: "fuelrig.png"},
 		{worldType: TILE_ORE_RIG, theFile: "orerig.png"}
 		];
